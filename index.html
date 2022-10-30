@@ -60,11 +60,16 @@
                 const clone = prot.cloneNode(true);
                 clone.id = index;
                 for (let indexY = 0; indexY < 10; indexY++) {
-                    const slot = clone.querySelector('[data-slot="' + indexY + '"]');
-                    const item = items.find(({id}) => id === crafts[index].slots[indexY])
-                    slot.setAttribute('href', item.source);
-                    slot.setAttribute('title', item.title);
-                    slot.childNodes[0].setAttribute('src', item.imgPath);
+                    try {
+                        const slot = clone.querySelector('[data-slot="' + indexY + '"]');
+                        const item = items.find(({id}) => id === crafts[index].slots[indexY])
+                        slot.setAttribute('href', item.source);
+                        slot.setAttribute('title', item.title);
+                        slot.childNodes[0].setAttribute('src', item.imgPath);
+                    } catch (error) {
+                        console.error(error);
+                        console.error(crafts[index]);
+                    }
                 }
                 main.appendChild(clone);
             }
