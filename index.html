@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>MineFoundation</title>
+    <link href="main3.css" rel="stylesheet" />
+    <link rel="icon" href="img/server-icon.png" />
+</head>
+
+<body>
+    <nav class="pg-nav content-mg">
+        <div>
+            <a href="#" class="fix-rg-mg">Crafts</a>
+            <a href="#" class="fix-rg-mg">Items</a>
+            <a href="#" class="fix-rg-mg">Other</a>
+        </div>
+        <div>
+            <button>User room</button>
+        </div>
+    </nav>
+    <hr>
+    <header class="content-mg">
+        <div>
+            <h1>MineFoundation</h1>
+            <h2>Minecraft apocalypse hard survival server</h2>
+            <button>User room</button>
+        </div>
+    </header>
+    <main>
+        <div class="content-mg flex-cont" id="craft-box">
+            <div class="box-cont" id="prot">
+                <h2>Name</h2>
+                <div class="nav-main">
+                    <div class="slot slot-bg zoom"><a href="#" data-slot="0" title=""><img src=""></a></div>
+                    <div class="slot slot-bg zoom"><a href="#" data-slot="1" title=""><img src=""></a></div>
+                    <div class="slot slot-bg zoom"><a href="#" data-slot="2" title=""><img src=""></a></div>
+                    <div class="slot" data-slot="empty"></div>
+                    <div class="slot" data-slot="empty"></div>
+                    <div class="slot slot-bg zoom" ><a href="#" data-slot="3" title=""><img src=""></a></div>
+                    <div class="slot slot-bg zoom"><a href="#" data-slot="4" title=""><img src=""></a></div>
+                    <div class="slot slot-bg zoom"><a href="#" data-slot="5" title=""><img src=""></a></div>
+                    <div class="slot" data-slot="empty"><img src="img/craft_arrow.png"></div>
+                    <div class="slot slot-bg zoom" data-slot="result"><a href="#" data-slot="9" title=""><img src=""></a></div>
+                    <div class="slot slot-bg zoom"><a href="#" data-slot="6" title=""><img src=""></a></div>
+                    <div class="slot slot-bg zoom"><a href="#" data-slot="7" title=""><img src=""></a></div>
+                    <div class="slot slot-bg zoom"><a href="#" data-slot="8" title=""><img src=""></a></div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="content-mg">
+        <script type="module">
+            import { crafts } from "./crafts.js"
+            import { items } from "./items.js"
+
+            const main = document.getElementById('craft-box');
+            const prot = document.getElementById('prot');
+
+            for (let index = 0; index < crafts.length; index++) {
+                const clone = prot.cloneNode(true);
+                clone.id = index;
+                for (let indexY = 0; indexY < 10; indexY++) {
+                    const slot = clone.querySelector('[data-slot="' + indexY + '"]');
+                    const item = items.find(({id}) => id === crafts[index].slots[indexY])
+                    slot.setAttribute('href', item.source);
+                    slot.setAttribute('title', item.title);
+                    slot.childNodes[0].setAttribute('src', item.imgPath);
+                }
+                main.appendChild(clone);
+            }
+        </script>
+        <p>Made by Gelden<br>
+            Copyright ©<br>
+            <a href="mailto:contact@gmail.com">contact@gmail.com</a>
+        </p>
+    </footer>
+</body>
+
+</html>
