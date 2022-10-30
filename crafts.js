@@ -7,4 +7,28 @@ export const crafts = [
             "meta_helmet"
         ]
     },
+    {
+        "slots": [
+            "stiff_leather","stiff_leather","stiff_leather",
+            "stiff_leather","air","stiff_leather",
+            "stiff_leather","air","stiff_leather",
+            "-"
+        ]
+    },
+    {
+        "slots": [
+            "stiff_leather","air","stiff_leather",
+            "stiff_leather","stiff_leather","stiff_leather",
+            "stiff_leather","stiff_leather","stiff_leather",
+            "-"
+        ]
+    },
+    {
+        "slots": [
+            "air","air","air",
+            "stiff_leather","air","stiff_leather",
+            "stiff_leather","air","stiff_leather",
+            "-"
+        ]
+    },
 ]
